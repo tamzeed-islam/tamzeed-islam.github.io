@@ -1,96 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <!-- Previous head content remains same -->
-    <style>
-        /* Previous styles remain same */
+<!-- Head section remains exactly the same until the style tag -->
+<style>
+    /* Keep all previous styles and add these new ones */
+    
+    .hero {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+        align-items: start;
+    }
 
+    .profile-image {
+        width: 100%;
+        max-width: 300px;
+        border-radius: 8px;
+    }
+
+    .social-links {
+        margin-top: 1rem;
+        display: flex;
+        gap: 2rem;
+    }
+
+    .social-links a {
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+        color: var(--accent-color);
+    }
+
+    @media (max-width: 768px) {
         .hero {
-            padding: 4rem 0;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .profile-image-container {
-            position: relative;
+            grid-template-columns: 1fr;
         }
 
         .profile-image {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+            max-width: 200px;
+            margin-bottom: 2rem;
         }
+    }
+</style>
 
-        .profile-image:hover {
-            transform: translateY(-5px);
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .profile-image-container {
-                order: -1;
-                display: flex;
-                justify-content: center;
-            }
-
-            .profile-image {
-                max-width: 250px;
-            }
-        }
-
-        /* Rest of your previous styles */
-    </style>
-</head>
 <body>
     <section class="hero">
-        <div class="hero-content">
+        <div>
             <h1>Hi, I'm Tamzeed Islam</h1>
-            <p>I'm an Applied Scientist working on Large Language Models at Amazon AGI. My work focuses on <span class="highlight">post-training techniques for LLMs</span>, with a special focus on <span class="highlight">Reinforcement Learning</span> and <span class="highlight">RLHF/RLVR</span> approaches.</p>
+            <p>I'm an Applied Scientist working on Large Language Models and AI Safety at Amazon AGI. My work focuses on developing the next generation of LLM-based agents that are both powerful and safe, with particular interest in post-training optimization of LLMs using Reinforcement Learning and RLHF/RLVR approaches.</p>
             
             <div class="social-links">
-                <a href="mailto:tamzeed94@gmail.com">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                </a>
-                <a href="https://www.linkedin.com/in/md-tamzeed-islam-63364858/" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                </a>
-                <a href="https://scholar.google.com/citations?user=-WDp23EAAAAJ&hl=en" target="_blank">
-                    <i class="fas fa-graduation-cap"></i>
-                    <span>Google Scholar</span>
-                </a>
-            </div>
-
-            <a href="/path-to-your-resume.pdf" class="resume-button" target="_blank">
-                <i class="fas fa-file-alt"></i>
-                View Resume
-            </a>
-
-            <div class="interests">
-                <strong>Research Interests:</strong> My current work centers on post-training optimization of Large Language Models, particularly exploring novel approaches in Reinforcement Learning with Verifiable Rewards (RLVR). I'm passionate about developing robust safety mechanisms for autonomous AI systems and improving model alignment through advanced training techniques.
+                <a href="mailto:tamzeed94@gmail.com">Email</a>
+                <a href="/path-to-your-resume.pdf" target="_blank">Resume</a>
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank">LinkedIn</a>
+                <a href="https://scholar.google.com/citations?user=your-id" target="_blank">Google Scholar</a>
             </div>
         </div>
-
-        <div class="profile-image-container">
+        <div>
             <img src="path-to-your-photo.jpg" alt="Tamzeed Islam" class="profile-image">
         </div>
     </section>
 
-    <!-- Rest of the sections remain same -->
+    <!-- Rest of the sections remain exactly the same -->
+
 </body>
 </html>
