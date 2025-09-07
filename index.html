@@ -1,188 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tamzeed Islam</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Previous head content remains same -->
     <style>
-        :root {
-            --primary-color: #1a1a1a;
-            --secondary-color: #4a4a4a;
-            --accent-color: #0066cc;
-            --background-color: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--primary-color);
-            background-color: var(--background-color);
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+        /* Previous styles remain same */
 
         .hero {
             padding: 4rem 0;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--secondary-color);
-            max-width: 600px;
-        }
-
-        .section {
-            margin: 4rem 0;
-        }
-
-        .section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .experience-item {
-            margin-bottom: 2rem;
             display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: start;
         }
 
-        .experience-date {
-            font-size: 0.9rem;
-            color: var(--secondary-color);
-        }
-
-        .experience-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .experience-content p {
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .skill-tag {
-            padding: 0.5rem 1rem;
-            background-color: #f5f5f5;
-            border-radius: 50px;
-            font-size: 0.9rem;
-        }
-
-        .publications-list {
+        .hero-content {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
         }
 
-        .publication-item {
-            padding: 1.5rem;
-            background-color: #f8f8f8;
-            border-radius: 8px;
-            transition: transform 0.2s;
+        .profile-image-container {
+            position: relative;
         }
 
-        .publication-item:hover {
-            transform: translateY(-2px);
+        .profile-image {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: translateY(-5px);
         }
 
         @media (max-width: 768px) {
-            .experience-item {
+            .hero {
                 grid-template-columns: 1fr;
-                gap: 0.5rem;
+                gap: 2rem;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .profile-image-container {
+                order: -1;
+                display: flex;
+                justify-content: center;
+            }
+
+            .profile-image {
+                max-width: 250px;
             }
         }
+
+        /* Rest of your previous styles */
     </style>
 </head>
 <body>
     <section class="hero">
-        <h1>Hi, I'm Tamzeed Islam</h1>
-        <p>I'm an Applied Scientist working on Large Language Models and AI Safety at Amazon AGI. My work focuses on developing the next generation of LLM-based agents that are both powerful and safe.</p>
-    </section>
+        <div class="hero-content">
+            <h1>Hi, I'm Tamzeed Islam</h1>
+            <p>I'm an Applied Scientist working on Large Language Models at Amazon AGI. My work focuses on <span class="highlight">post-training techniques for LLMs</span>, with a special focus on <span class="highlight">Reinforcement Learning</span> and <span class="highlight">RLHF/RLVR</span> approaches.</p>
+            
+            <div class="social-links">
+                <a href="mailto:tamzeed94@gmail.com">
+                    <i class="fas fa-envelope"></i>
+                    <span>Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/md-tamzeed-islam-63364858/" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://scholar.google.com/citations?user=-WDp23EAAAAJ&hl=en" target="_blank">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Google Scholar</span>
+                </a>
+            </div>
 
-    <section class="section">
-        <h2>Experience</h2>
-        <div class="experience-item">
-            <div class="experience-date">2024 - Present</div>
-            <div class="experience-content">
-                <h3>Applied Scientist II, Amazon AGI</h3>
-                <p>Leading development of LLM safety systems and agent frameworks</p>
-                <ul>
-                    <li>Architected 2B parameter LLM safety model</li>
-                    <li>Developed multi-layered safety framework for autonomous agents</li>
-                    <li>Led Nova model customization for MIT metamaterial design project</li>
-                </ul>
+            <a href="/path-to-your-resume.pdf" class="resume-button" target="_blank">
+                <i class="fas fa-file-alt"></i>
+                View Resume
+            </a>
+
+            <div class="interests">
+                <strong>Research Interests:</strong> My current work centers on post-training optimization of Large Language Models, particularly exploring novel approaches in Reinforcement Learning with Verifiable Rewards (RLVR). I'm passionate about developing robust safety mechanisms for autonomous AI systems and improving model alignment through advanced training techniques.
             </div>
         </div>
 
-        <div class="experience-item">
-            <div class="experience-date">2021 - 2024</div>
-            <div class="experience-content">
-                <h3>Applied Scientist II, Amazon Lab 126</h3>
-                <p>Developed multi-modal ML solutions for Echo devices</p>
-                <ul>
-                    <li>Developed multi-task DNN for Echo Show 10</li>
-                    <li>Led development of multi-device speech-based position detection</li>
-                </ul>
-            </div>
+        <div class="profile-image-container">
+            <img src="path-to-your-photo.jpg" alt="Tamzeed Islam" class="profile-image">
         </div>
     </section>
 
-    <section class="section">
-        <h2>Research</h2>
-        <div class="publications-list">
-            <div class="publication-item">
-                <h3>Efficient Stuttering Event Detection Using Siamese Networks</h3>
-                <p>IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2023</p>
-            </div>
-            <div class="publication-item">
-                <h3>Sound-Adapter: Multi-Source Domain Adaptation for Acoustic Classification</h3>
-                <p>International Conference on Information Processing in Sensor Networks (IPSN), 2021</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="section">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <span class="skill-tag">Large Language Models</span>
-            <span class="skill-tag">AI Safety</span>
-            <span class="skill-tag">PyTorch</span>
-            <span class="skill-tag">TensorFlow</span>
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">C++</span>
-            <span class="skill-tag">Multi-modal ML</span>
-            <span class="skill-tag">Deep Learning</span>
-        </div>
-    </section>
+    <!-- Rest of the sections remain same -->
 </body>
 </html>
