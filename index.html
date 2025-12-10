@@ -14,6 +14,7 @@
     --card-bg: #0e1224;
     --chip-bg: #101528;
     --border-subtle: #1f2438;
+    --success-color: #33d17a;
 }
 
 * {
@@ -34,6 +35,19 @@ body {
     max-width: 960px;
     margin: 0 auto;
     padding: 1.5rem 1.5rem 3rem;
+    animation: fadeIn 0.7s ease-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Top Navigation */
@@ -97,6 +111,146 @@ body {
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
+}
+
+/* Hero */
+.hero {
+    padding: 3.5rem 0 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    scroll-margin-top: 90px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--secondary-color);
+    margin-bottom: 0.4rem;
+}
+
+.hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.9rem;
+}
+
+.hero p {
+    color: var(--secondary-color);
+    max-width: 620px;
+    font-size: 0.95rem;
+}
+
+.hero-meta {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+}
+
+.hero-meta span {
+    margin-right: 1rem;
+}
+
+.hero-meta strong {
+    color: var(--primary-color);
+}
+
+/* Contact row (email + LinkedIn) */
+.hero-contact {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+/* Contact chips */
+.contact-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 0.85rem;
+    background-color: var(--chip-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+}
+
+.contact-chip svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--secondary-color);
+    fill: none;
+}
+
+/* Email-specific chip */
+.contact-chip.email {
+    cursor: pointer;
+    user-select: none;
+}
+
+.contact-chip.email.copied {
+    border-color: var(--success-color);
+}
+
+/* Email text hover to show full address */
+.email-text {
+    position: relative;
+    white-space: nowrap;
+}
+
+.contact-chip.email:hover .email-text {
+    color: transparent;
+}
+
+.contact-chip.email:hover .email-text::after {
+    content: attr(data-email-full);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary-color);
+}
+
+/* LinkedIn chip */
+.contact-chip.linkedin svg {
+    fill: var(--secondary-color);
+    stroke: none;
+}
+
+.contact-chip:hover {
+    color: var(--primary-color);
+    border-color: var(--accent-color);
+}
+
+.contact-chip:hover svg {
+    stroke: var(--accent-color);
+}
+
+.contact-chip.linkedin:hover svg {
+    fill: var(--accent-color);
+}
+
+/* Profile Image */
+.profile-image {
+    width: 195px;
+    height: 195px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 40% center; /* shift focus slightly left */
+    margin-top: 0.4rem;
+    border: 2px solid var(--border-subtle);
 }
 
 /* Experience */
@@ -215,111 +369,6 @@ body {
     margin-top: 0.25rem;
 }
 
-/* Hero */
-.hero {
-    padding: 3.5rem 0 2rem;
-    display: flex;
-    align-items: flex-start;
-    gap: 2rem;
-    scroll-margin-top: 90px;
-}
-
-.hero-content {
-    flex: 1;
-}
-
-.hero-eyebrow {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--secondary-color);
-    margin-bottom: 0.4rem;
-}
-
-.hero h1 {
-    font-size: 2.4rem;
-    margin-bottom: 0.5rem;
-}
-
-.hero-subtitle {
-    font-size: 0.95rem;
-    color: var(--secondary-color);
-    margin-bottom: 0.9rem;
-}
-
-.hero p {
-    color: var(--secondary-color);
-    max-width: 620px;
-    font-size: 0.95rem;
-}
-
-.hero-meta {
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    color: var(--secondary-color);
-}
-
-.hero-meta span {
-    margin-right: 1rem;
-}
-
-.hero-meta strong {
-    color: var(--primary-color);
-}
-
-/* .profile-image {
-    width: 195px;
-    height: 195px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-top: 0.4rem;
-    border: 2px solid var(--border-subtle);
-} */
-    .profile-image {
-    width: 195px;
-    height: 195px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: 40% center; /* shift focus slightly left */
-    margin-top: 0.4rem;
-   
-
-/* Buttons */
-.cta-row {
-    margin-top: 1.2rem;
-    display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 0.65rem 1.35rem;
-    background-color: var(--accent-color);
-    color: white;
-    text-decoration: none;
-    border-radius: 999px;
-    font-size: 0.9rem;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.15s ease, transform 0.1s ease;
-}
-
-.cta-button:hover {
-    background-color: #3c73e0;
-    transform: translateY(-1px);
-}
-
-.secondary-link {
-    font-size: 0.9rem;
-    color: var(--secondary-color);
-    text-decoration: none;
-}
-
-.secondary-link:hover {
-    color: var(--accent-color);
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     body {
@@ -384,7 +433,7 @@ body {
 <section class="hero" id="about">
     <div class="hero-content">
         <div class="hero-eyebrow">Applied Scientist • LLMs & RL</div>
-       <h1>Hi, I'm Tamzeed</h1>
+        <h1>Hi, I'm Tamzeed</h1>
         <div class="hero-subtitle">
             Applied Scientist at Amazon AGI working on large language models, RLHF, and LLM-based agents.
         </div>
@@ -399,13 +448,30 @@ body {
             <span><strong>Location:</strong> Boston, MA</span>
             <span><strong>Current:</strong> Amazon AGI</span>
         </div>
-        <!-- <div class="cta-row">
-            <a href="resume_25-3.pdf" class="cta-button" target="_blank">Download Resume</a>
-            <!-- Replace with your preferred email if you want a contact link -->
-            <!-- <a href="mailto:tamzeedi@amazon.com" class="secondary-link">Contact</a>
-        </div> --> 
-        <div class="hero-email">
-            tamzeed94 [at] gmail [dot] com
+
+        <div class="hero-contact">
+            <!-- Email chip (click to copy, hover to show full email) -->
+            <div class="contact-chip email" title="Click to copy email">
+                <svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span class="email-text"
+                      data-email-obfuscated="tamzeed94 [at] gmail [dot] com"
+                      data-email-full="tamzeed94@gmail.com">
+                    tamzeed94 [at] gmail [dot] com
+                </span>
+            </div>
+
+            <!-- LinkedIn chip -->
+            <a class="contact-chip linkedin"
+               href="https://www.linkedin.com/in/tamzeed-islam"
+               target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24">
+                    <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8h4V24h-4zM8.5 8h3.6v2.2h.05c.5-1 1.75-2.2 3.6-2.2 3.85 0 4.55 2.55 4.55 5.85V24h-4v-7.6c0-1.8-.03-4.1-2.5-4.1-2.5 0-2.9 1.95-2.9 4V24h-4z"/>
+                </svg>
+                <span>LinkedIn</span>
+            </a>
         </div>
     </div>
     <img src="IMG_1595.jpeg" alt="Tamzeed Islam" class="profile-image">
@@ -520,7 +586,6 @@ body {
         <span class="skill-tag">Hugging Face</span>
         <span class="skill-tag">MATLAB</span>
         <span class="skill-tag">Kubernetes</span>
-
     </div>
 </section>
 
@@ -593,6 +658,35 @@ body {
 
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const emailChip = document.querySelector('.contact-chip.email');
+    if (!emailChip) return;
+
+    const emailSpan = emailChip.querySelector('.email-text');
+    if (!emailSpan) return;
+
+    const fullEmail = emailSpan.getAttribute('data-email-full');
+
+    // Click to copy full email
+    emailChip.addEventListener('click', async function () {
+        if (!fullEmail) return;
+
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                await navigator.clipboard.writeText(fullEmail);
+                emailChip.classList.add('copied');
+                setTimeout(() => {
+                    emailChip.classList.remove('copied');
+                }, 1200);
+            }
+        } catch (e) {
+            console.error('Clipboard copy failed', e);
+        }
+    });
+});
+</script>
 
 </body>
 </html>
